@@ -1,11 +1,27 @@
-function preload(){
-  // put preload code here
+var pugStatus = false;
+
+function preload() {
+  happyPug  = loadImage("assets/happyPug.png");
+  sleepyPug = loadImage("assets/sleepyPug.png");
 }
 
 function setup() {
-  // put setup code here
+  createCanvas(windowWidth,windowHeight);
+  setShakeThreshold(30);
+}
+
+function pugDisplay() {
+  if (pugStatus == true) {
+    image(happyPug, 0, 0);
+  } else {
+    image(sleepyPug, 0, 0);
+  }
 }
 
 function draw() {
-  // put drawing code here
+  pugDisplay();
+}
+
+function deviceShaken() {
+  pugStatus = !pugStatus;
 }
